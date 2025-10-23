@@ -29,7 +29,7 @@ def create_user(name: str | None = None, db: Session = Depends(get_db)):
     return {"user_id": new_user.id}
 
 # 2. 이미지 업로드 
-UPLOAD_DIR = Path("uploads")
+UPLOAD_DIR = Path(__file__).parent / "uploads"
 UPLOAD_DIR.mkdir(exist_ok=True)
 
 @app.post("/api/v1/upload")
