@@ -20,10 +20,10 @@ class Image(Base):
 class AnalysisResult(Base):
     __tablename__ = "analysis_results"
 
-    id = Column(Integer, primary_key=True, index=True)
-    image_id = Column(Integer, ForeignKey("images.id"))
-    item = Column(String, nullable=False)   # sensitivity, pigmentation, sebum, pore, wrinkle 중 하나
-    score = Column(Float, nullable=False)
+    image_id = Column(Integer, ForeignKey("images.id"), primary_key=True)
+    acne = Column(Float, nullable=True)
+    hemo = Column(Float, nullable=True)
+    mela = Column(Float, nullable=True)
+    pore = Column(Float, nullable=True)
+    wrinkle = Column(Float, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-    __table_args__ = (UniqueConstraint("image_id", "item", name="unique_image_item"),)
