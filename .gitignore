@@ -13,3 +13,5 @@ app/uploads/
 
 .DS_Store
 Thumbs.db
+
+my-ec2-key.pem

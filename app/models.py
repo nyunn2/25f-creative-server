@@ -21,9 +21,17 @@ class AnalysisResult(Base):
     __tablename__ = "analysis_results"
 
     image_id = Column(Integer, ForeignKey("images.id"), primary_key=True)
+
     acne = Column(Float, nullable=True)
     hemo = Column(Float, nullable=True)
     mela = Column(Float, nullable=True)
     pore = Column(Float, nullable=True)
     wrinkle = Column(Float, nullable=True)
+
+    overlay_acne = Column(String, nullable=True)
+    overlay_hemo = Column(String, nullable=True)
+    overlay_mela = Column(String, nullable=True)
+    overlay_pore = Column(String, nullable=True)
+    overlay_wrinkle = Column(String, nullable=True)
+
     created_at = Column(DateTime(timezone=True), server_default=func.now())
